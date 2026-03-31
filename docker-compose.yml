@@ -1,0 +1,24 @@
+services:
+  videofocus-api:
+    image: ghcr.io/lunoho/videofocus-web:latest
+    build: .
+    restart: unless-stopped
+    mem_limit: 64m
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    networks:
+      videofocus_net:
+        aliases:
+          - videofocus-api
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+networks:
+  videofocus_net:
+    external: true
