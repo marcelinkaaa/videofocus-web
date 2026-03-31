@@ -1,6 +1,6 @@
 services:
   videofocus-api:
-    image: ghcr.io/lunoho/videofocus-web:latest
+    image: ghcr.io/marcelinkaaa/videofocus-web:latest
     build: .
     restart: unless-stopped
     mem_limit: 64m
