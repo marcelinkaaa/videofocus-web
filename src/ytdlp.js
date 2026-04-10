@@ -31,7 +31,7 @@ function extractFormats(videoId) {
         const args = [
             '-j', '--no-download',
             '--extractor-args', 'youtube:player_client=web',
-            '--js-runtimes', 'node',
+            '--js-runtimes', 'quickjs',
             '--', `https://www.youtube.com/watch?v=${videoId}`,
         ];
         execFile(YT_DLP_PATH, args, {
