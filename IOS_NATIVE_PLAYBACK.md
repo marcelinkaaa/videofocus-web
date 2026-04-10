@@ -167,9 +167,26 @@ The extraction pipeline can fail. The app should handle each scenario gracefully
 > 1. Open **Settings** > **Screen Time** > **Content & Privacy Restrictions**
 > 2. Tap **Content Restrictions** > **Web Content**
 > 3. Under **Allowed Websites**, tap **Add Website**
-> 4. Enter: `api.videofocus.app`
+> 4. Enter: `api.videofocus.app` **[Copy]**
 >
 > Videos will play normally once this is added.
+>
+> [Share Instructions with Parent]
+
+**UI details:**
+- The **[Copy]** button next to `api.videofocus.app` copies the URL to the clipboard via `UIPasteboard.general.string`. Show a brief "Copied!" confirmation (e.g. tooltip or HUD).
+- The **[Share Instructions with Parent]** button opens a `UIActivityViewController` with a pre-written message:
+
+  > To keep VideoFocus working on [child's name]'s iPad, please add this website to Screen Time's allowed list:
+  >
+  > 1. Open Settings > Screen Time > Content & Privacy Restrictions
+  > 2. Tap Content Restrictions > Web Content
+  > 3. Under Allowed Websites, tap Add Website
+  > 4. Enter: api.videofocus.app
+  >
+  > This lets VideoFocus load videos while Screen Time is enabled.
+
+  This lets the child share the steps via Messages, AirDrop, email, etc. — so the instructions reach the parent's device where they can act on them.
 
 **What to show (unrestricted device):** Silently fall back to WKWebView — no user message needed.
 
