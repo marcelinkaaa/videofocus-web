@@ -1,42 +1,16 @@
 const express = require('express');
-const rateLimit = require('express-rate-limit');
 const https = require('https');
 const http = require('http');
+const { limiter, requireApiKey, requireVideoFocusAgent } = require('./middleware');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const API_KEY = process.env.API_KEY;
 const PUBLIC_ORIGIN = process.env.PUBLIC_ORIGIN || 'https://api.videofocus.app';
-const RATE_LIMIT_RPM = parseInt(process.env.RATE_LIMIT_RPM || '60', 10);
 
 // Trust first proxy (Caddy) so rate limiting uses real client IP
 app.set('trust proxy', 1);
 
 const VIDEO_ID_RE = /^[a-zA-Z0-9_-]{11}$/;
-
-const limiter = rateLimit({
-    windowMs: 60 * 1000,
-    max: RATE_LIMIT_RPM,
-    standardHeaders: true,
-    legacyHeaders: false,
-});
-
-function requireApiKey(req, res, next) {
-    const auth = req.headers['authorization'] || '';
-    const queryKey = req.query.key || '';
-    if (!API_KEY || (auth !== `Bearer ${API_KEY}` && queryKey !== API_KEY)) {
-        return res.status(401).json({ error: 'Unauthorised' });
-    }
-    next();
-}
-
-function requireVideoFocusAgent(req, res, next) {
-    const ua = req.headers['user-agent'] || '';
-    if (!ua.includes('VideoFocus')) {
-        return res.status(403).json({ error: 'Forbidden' });
-    }
-    next();
-}
 
 // --- YouTube iframe API script cache ---
 // Fetches youtube.com/iframe_api server-side so the client never hits youtube.com directly.
