@@ -42,7 +42,8 @@ function extractFormats(videoId) {
             releaseSlot();
             if (err) {
                 if (err.killed) return reject(new Error('yt-dlp timed out'));
-                return reject(new Error(`yt-dlp failed: ${stderr || err.message}`));
+                const detail = stderr || stdout || err.message;
+                return reject(new Error(`yt-dlp failed: ${detail}`));
             }
             try {
                 resolve(JSON.parse(stdout));
