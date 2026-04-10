@@ -30,7 +30,7 @@ function extractFormats(videoId) {
         await acquireSlot();
         const args = [
             '-j', '--no-download',
-            '--extractor-args', 'youtube:player_client=ios,web',
+            '--extractor-args', 'youtube:player_client=web',
             '--', `https://www.youtube.com/watch?v=${videoId}`,
         ];
         execFile(YT_DLP_PATH, args, {
