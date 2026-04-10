@@ -2,6 +2,10 @@ const express = require('express');
 const https = require('https');
 const http = require('http');
 const { limiter, requireApiKey, requireVideoFocusAgent } = require('./middleware');
+const { createCache } = require('./cache');
+const { createHealthChecker } = require('./health');
+const { createStreamRouter } = require('./routes/stream');
+const { extractFormats, pickStreams, parseExpiry } = require('./ytdlp');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,6 +15,13 @@ const PUBLIC_ORIGIN = process.env.PUBLIC_ORIGIN || 'https://api.videofocus.app';
 app.set('trust proxy', 1);
 
 const VIDEO_ID_RE = /^[a-zA-Z0-9_-]{11}$/;
+
+const cache = createCache(process.env.REDIS_URL);
+const healthChecker = createHealthChecker(
+    extractFormats,
+    process.env.HEALTH_CHECK_VIDEO_ID || 'dQw4w9WgXcQ',
+    30 * 60 * 1000,
+);
 
 // --- YouTube iframe API script cache ---
 // Fetches youtube.com/iframe_api server-side so the client never hits youtube.com directly.
@@ -80,10 +91,21 @@ function proxyRequest(targetUrl, req, res) {
     proxyReq.end();
 }
 
+// --- Stream API ---
+
+app.use('/api/v1', createStreamRouter({
+    cache,
+    ytdlp: { extractFormats, pickStreams, parseExpiry },
+    apiKey: process.env.API_KEY,
+}));
+
 // --- Routes ---
 
-app.get('/health', (_req, res) => {
-    res.json({ status: 'ok', version: '2.0.0' });
+app.get('/health', async (_req, res) => {
+    const redisHealth = await cache.health();
+    const ytdlpHealth = healthChecker.status();
+    const status = redisHealth.connected && ytdlpHealth.ok ? 'ok' : 'degraded';
+    res.json({ status, version: '3.0.0', redis: redisHealth, ytdlp: ytdlpHealth });
 });
 
 // Serve YouTube iframe API script from our domain
@@ -208,6 +230,12 @@ function buildPlayerHtml(videoId, origin, apiKey) {
 </html>`;
 }
 
+process.on('SIGTERM', async () => {
+    healthChecker.stop();
+    await cache.close();
+    process.exit(0);
+});
+
 app.listen(PORT, () => {
-    console.log(`VideoFocus player proxy v2 listening on port ${PORT}`);
+    console.log(`VideoFocus v3 listening on port ${PORT}`);
 });
