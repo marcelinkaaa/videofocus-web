@@ -15,7 +15,7 @@ YDL_OPTS = {
     "quiet": True,
     "no_warnings": False,
     "extractor_args": {"youtube": {"player_client": ["web"]}},
-    "js_runtimes": "node",
+    "js_runtimes": {"node": {}},
 }
 
 # Pool of YoutubeDL instances with individual locks
