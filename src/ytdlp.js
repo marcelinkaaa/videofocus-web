@@ -1,7 +1,7 @@
 const { execFile } = require('node:child_process');
 
 const YT_DLP_PATH = process.env.YT_DLP_PATH || 'yt-dlp';
-const YT_DLP_TIMEOUT = parseInt(process.env.YT_DLP_TIMEOUT || '15000', 10);
+const YT_DLP_TIMEOUT = parseInt(process.env.YT_DLP_TIMEOUT || '30000', 10);
 const STREAM_CACHE_TTL = parseInt(process.env.STREAM_CACHE_TTL || '18000', 10);
 
 // Concurrency limiter — prevent spawning too many yt-dlp processes
