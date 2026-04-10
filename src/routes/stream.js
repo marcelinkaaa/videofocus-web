@@ -23,10 +23,13 @@ function createStreamRouter({ cache, ytdlp, apiKey }) {
         }
 
         const preferredQuality = parseInt(req.query.quality || DEFAULT_QUALITY, 10);
+        const force = req.query.force === 'true';
 
-        const cached = await cache.get(`stream:${videoId}`);
-        if (cached) {
-            return res.json({ ...cached, cached: true });
+        if (!force) {
+            const cached = await cache.get(`stream:${videoId}`);
+            if (cached) {
+                return res.json({ ...cached, cached: true });
+            }
         }
 
         try {

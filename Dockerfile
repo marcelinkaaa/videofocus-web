@@ -1,9 +1,5 @@
 FROM node:20-alpine
 
-RUN apk add --no-cache python3 py3-pip && \
-    pip3 install --no-cache-dir --break-system-packages yt-dlp yt-dlp-ejs pycryptodomex && \
-    mkdir -p /home/node/.cache/yt-dlp && chown -R node:node /home/node
-
 WORKDIR /app
 
 COPY package*.json ./

@@ -1,57 +1,28 @@
-const { execFile } = require('node:child_process');
-
-const YT_DLP_PATH = process.env.YT_DLP_PATH || 'yt-dlp';
+const SIDECAR_URL = process.env.YT_DLP_SIDECAR_URL || 'http://ytdlp-sidecar:3001';
 const YT_DLP_TIMEOUT = parseInt(process.env.YT_DLP_TIMEOUT || '15000', 10);
 const STREAM_CACHE_TTL = parseInt(process.env.STREAM_CACHE_TTL || '18000', 10);
 
-// Concurrency limiter — prevent spawning too many yt-dlp processes
-const MAX_CONCURRENT = 3;
-let active = 0;
-const queue = [];
+async function extractFormats(videoId) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), YT_DLP_TIMEOUT);
 
-function acquireSlot() {
-    if (active < MAX_CONCURRENT) {
-        active++;
-        return Promise.resolve();
-    }
-    return new Promise((resolve) => queue.push(resolve));
-}
-
-function releaseSlot() {
-    active--;
-    if (queue.length > 0) {
-        active++;
-        queue.shift()();
-    }
-}
-
-function extractFormats(videoId) {
-    return new Promise(async (resolve, reject) => {
-        await acquireSlot();
-        const args = [
-            '-j', '--no-download',
-            '--extractor-args', 'youtube:player_client=web',
-            '--js-runtimes', 'node',
-            '--', `https://www.youtube.com/watch?v=${videoId}`,
-        ];
-        execFile(YT_DLP_PATH, args, {
-            timeout: YT_DLP_TIMEOUT,
-            maxBuffer: 5 * 1024 * 1024,
-            killSignal: 'SIGKILL',
-        }, (err, stdout, stderr) => {
-            releaseSlot();
-            if (err) {
-                if (err.killed) return reject(new Error('yt-dlp timed out'));
-                const detail = stderr || stdout || err.message;
-                return reject(new Error(`yt-dlp failed: ${detail}`));
-            }
-            try {
-                resolve(JSON.parse(stdout));
-            } catch (e) {
-                reject(new Error('yt-dlp returned invalid JSON'));
-            }
+    try {
+        const res = await fetch(`${SIDECAR_URL}/extract/${videoId}`, {
+            signal: controller.signal,
         });
-    });
+        clearTimeout(timeout);
+
+        if (!res.ok) {
+            const body = await res.json().catch(() => ({}));
+            throw new Error(body.error || `Sidecar returned ${res.status}`);
+        }
+
+        return await res.json();
+    } catch (err) {
+        clearTimeout(timeout);
+        if (err.name === 'AbortError') throw new Error('yt-dlp timed out');
+        throw err;
+    }
 }
 
 function pickStreams(formats, preferredQuality) {
