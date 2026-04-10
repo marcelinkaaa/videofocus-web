@@ -13,8 +13,9 @@ VIDEO_ID_RE = re.compile(r"^[a-zA-Z0-9_-]{11}$")
 
 YDL_OPTS = {
     "quiet": True,
-    "no_warnings": True,
+    "no_warnings": False,
     "extractor_args": {"youtube": {"player_client": ["web"]}},
+    "js_runtimes": "node",
 }
 
 # Pool of YoutubeDL instances with individual locks
