@@ -9,12 +9,16 @@ import yt_dlp
 
 POOL_SIZE = int(os.environ.get("YT_DLP_POOL_SIZE", "5"))
 PORT = int(os.environ.get("YT_DLP_PORT", "3001"))
+POT_URL = os.environ.get("POT_SERVER_URL", "http://bgutil-pot-provider:4416")
 VIDEO_ID_RE = re.compile(r"^[a-zA-Z0-9_-]{11}$")
 
 YDL_OPTS = {
     "quiet": True,
     "no_warnings": False,
-    "extractor_args": {"youtube": {"player_client": ["web"]}},
+    "extractor_args": {
+        "youtube": {"player_client": ["web"]},
+        "youtubepot-bgutilhttp": {"base_url": [POT_URL]},
+    },
     "js_runtimes": {"node": {}},
 }
 
