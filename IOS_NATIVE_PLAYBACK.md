@@ -53,6 +53,7 @@ App launch / video play requested
 | Param | Default | Description |
 |-------|---------|-------------|
 | `quality` | `720` | Preferred max resolution (pixel height): 360, 480, 720, 1080 |
+| `force` | `false` | Set to `true` to bypass cache and force a fresh extraction. Use when a cached URL has expired or failed during playback. |
 
 **Success response (200):**
 
@@ -120,6 +121,19 @@ For 1080p+, use `streams.video.url` and `streams.audio.url` separately via `AVMu
 - Lock screen / Control Center controls
 - AirPlay to Apple TV
 - No YouTube branding
+
+### Expected Latency
+
+Stream URLs are cached server-side for ~5 hours. Expect these response times:
+
+| Scenario | Latency | Frequency |
+|----------|---------|-----------|
+| **Cache hit** | <50ms | After first play of a video, for ~5 hours |
+| **Cache miss** | 5-7 seconds | First play of any video, or after cache expires |
+
+**The app must handle 5-7 second cache-miss delays gracefully.** With a large curated library, many videos will be cold (uncached) when first played. Show a loading state (spinner, skeleton, thumbnail with progress indicator) while the stream URL is being fetched. Do not show a blank screen or appear frozen.
+
+The `cached` field in the response tells you whether it was a cache hit.
 
 ---
 
@@ -192,16 +206,19 @@ The extraction pipeline can fail. The app should handle each scenario gracefully
 
 #### 4. Stream URL expires during playback
 
-**Cause:** CDN URLs are valid for ~6 hours. If a child pauses and returns hours later, the URL will have expired.
+**Cause:** CDN URLs are valid for ~6 hours. If a child pauses and returns hours later, the URL will have expired. AVPlayer will report a playback failure.
 
-**Detection:** `AVPlayerItem.status == .failed` or KVO on `AVPlayerItem.error`.
+**Detection:** `AVPlayerItem.status == .failed` or KVO on `AVPlayerItem.error`. An expired URL typically produces a network-related `AVError`.
 
 **What to do:**
 1. Save current playback position (`CMTime`)
-2. Re-call `GET /api/v1/stream/:videoId`
-3. Create new `AVPlayerItem` with fresh URL
-4. `player.replaceCurrentItem(with: newItem)`
-5. `player.seek(to: savedPosition)` and resume
+2. Re-call `GET /api/v1/stream/:videoId?force=true` — the `force` flag bypasses the server cache, which likely also has the expired URL
+3. Show a brief loading indicator ("Reconnecting...")
+4. Create new `AVPlayerItem` with the fresh URL
+5. `player.replaceCurrentItem(with: newItem)`
+6. `player.seek(to: savedPosition)` and resume
+
+**Important:** Always use `?force=true` when recovering from a playback failure. The server cache may still have the expired URL. Without `force`, you'll get the same dead URL back.
 
 **What to show (only if re-fetch also fails):**
 
@@ -289,9 +306,12 @@ struct StreamResponse: Codable {
     }
 }
 
-func fetchStreamURL(videoId: String) async throws -> StreamResponse {
-    let url = URL(string: "https://api.videofocus.app/api/v1/stream/\(videoId)")!
-    var request = URLRequest(url: url)
+func fetchStreamURL(videoId: String, force: Bool = false) async throws -> StreamResponse {
+    var components = URLComponents(string: "https://api.videofocus.app/api/v1/stream/\(videoId)")!
+    if force {
+        components.queryItems = [URLQueryItem(name: "force", value: "true")]
+    }
+    var request = URLRequest(url: components.url!)
     request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
     let (data, response) = try await URLSession.shared.data(for: request)
     let http = response as! HTTPURLResponse
@@ -301,10 +321,21 @@ func fetchStreamURL(videoId: String) async throws -> StreamResponse {
     return try JSONDecoder().decode(StreamResponse.self, from: data)
 }
 
-// Play with AVPlayer
+// --- Normal playback (show loading spinner while waiting) ---
 let stream = try await fetchStreamURL(videoId: "dQw4w9WgXcQ")
 if let muxed = stream.streams.muxed, let url = URL(string: muxed.url) {
     let player = AVPlayer(url: url)
     // Present via AVPlayerViewController or SwiftUI VideoPlayer
+}
+
+// --- Recovery from expired URL mid-playback ---
+// When AVPlayerItem.status == .failed:
+let currentTime = player.currentTime()
+let fresh = try await fetchStreamURL(videoId: videoId, force: true)  // bypass cache
+if let muxed = fresh.streams.muxed, let url = URL(string: muxed.url) {
+    let newItem = AVPlayerItem(url: url)
+    player.replaceCurrentItem(with: newItem)
+    await player.seek(to: currentTime)
+    player.play()
 }
 ```
