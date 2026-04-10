@@ -3,15 +3,18 @@ services:
     image: ghcr.io/marcelinkaaa/videofocus-web:latest
     build: .
     restart: unless-stopped
-    mem_limit: 64m
+    mem_limit: 256m
     env_file:
       - .env
+    depends_on:
+      redis:
+        condition: service_healthy
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost:3000/health"]
       interval: 30s
       timeout: 5s
       retries: 3
-      start_period: 5s
+      start_period: 15s
     networks:
       videofocus_net:
         aliases:
@@ -19,6 +22,26 @@ services:
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
 
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    mem_limit: 64m
+    command: redis-server --maxmemory 48mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    networks:
+      videofocus_net:
+        aliases:
+          - redis
+    volumes:
+      - redis-data:/data
+
 networks:
   videofocus_net:
     external: true
+
+volumes:
+  redis-data:
