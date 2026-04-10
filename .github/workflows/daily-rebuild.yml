@@ -20,9 +20,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: docker/build-push-action@v6
+      - name: Rebuild sidecar (latest yt-dlp)
+        uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ./sidecar
           push: true
           no-cache: true
-          tags: ghcr.io/marcelinkaaa/videofocus-web:latest
+          tags: ghcr.io/marcelinkaaa/videofocus-sidecar:latest

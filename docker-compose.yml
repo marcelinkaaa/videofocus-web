@@ -1,25 +1,16 @@
+# Development only — production services are in the dockerhost repo
 services:
   videofocus-api:
-    image: ghcr.io/marcelinkaaa/videofocus-web:latest
     build: .
     restart: unless-stopped
     mem_limit: 128m
     env_file:
       - .env
+    ports:
+      - "3000:3000"
     depends_on:
       - ytdlp-sidecar
-    healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost:3000/health"]
-      interval: 30s
-      timeout: 5s
-      retries: 3
-      start_period: 15s
-    networks:
-      videofocus_net:
-        aliases:
-          - videofocus-api
-    labels:
-      - "com.centurylinklabs.watchtower.enable=true"
+      - redis
 
   ytdlp-sidecar:
     build: ./sidecar
@@ -27,19 +18,8 @@ services:
     mem_limit: 192m
     environment:
       - YT_DLP_POOL_SIZE=3
-    healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost:3001/health"]
-      interval: 30s
-      timeout: 5s
-      retries: 3
-      start_period: 10s
-    networks:
-      videofocus_net:
-        aliases:
-          - ytdlp-sidecar
-    labels:
-      - "com.centurylinklabs.watchtower.enable=false"
 
-networks:
-  videofocus_net:
-    external: true
+  redis:
+    image: redis:7-alpine
+    mem_limit: 64m
+    command: redis-server --maxmemory 48mb --maxmemory-policy allkeys-lru
