@@ -706,7 +706,7 @@ nav.menu-open .nav-mobile-menu {
 /* ============================================
    SECTIONS — shared styles
    ============================================ */
-section { padding: 110px 22px; }
+section { padding: 110px 80px; }
 .section-inner {
   max-width: 1480px;
   margin: 0 auto;
@@ -878,6 +878,45 @@ section { padding: 110px 22px; }
   width: 175px;
   margin-top: 40px;
   opacity: 0.92;
+}
+
+/* Families section — phone + floating widget card */
+.families-screenshots {
+  position: relative;
+  min-height: 520px;
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.families-screenshots .screenshot-phone {
+  width: 260px;
+  padding: 0;
+  background: transparent;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.12);
+}
+.families-screenshots .screenshot-phone img {
+  border-radius: 24px;
+}
+.screenshot-widget {
+  position: absolute;
+  bottom: 40px;
+  left: 160px;
+  width: 320px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+  transition: transform 0.4s ease;
+}
+.screenshot-widget:hover { transform: translateY(-6px) scale(1.02); }
+.screenshot-widget img {
+  width: 100%;
+  display: block;
+}
+
+/* Feature points without leading icons */
+.feature-points.no-icons .feature-point {
+  gap: 0;
 }
 
 /* ============================================
@@ -1120,6 +1159,10 @@ body.resizing *::after {
   .feature-panel.reverse .feature-content { order: 1; }
   .feature-panel.reverse .feature-screenshots { order: 2; }
   .feature-screenshots { justify-content: center; }
+  .families-screenshots { min-height: 480px; max-width: 440px; }
+  .screenshot-widget { left: 140px; width: 300px; }
+  section { padding: 100px 60px; }
+  .hero { padding: 120px 22px 0; }
 
   .float-channels {
   top: 35%;
@@ -1146,7 +1189,7 @@ body.resizing *::after {
 }
 
 @media (max-width: 768px) {
-  section { padding: 80px 20px; }
+  section { padding: 80px 48px; }
   .hero { padding: 120px 20px 70px; }
   .steps-grid {
     grid-template-columns: 1fr;
@@ -1212,8 +1255,13 @@ body.resizing *::after {
 }
 
 @media (max-width: 480px) {
+  section { padding: 70px 28px; }
+  .hero { padding: 90px 20px 50px; }
   .screenshot-phone { width: 160px; }
   .screenshot-phone.secondary { width: 140px; margin-top: 24px; }
+  .families-screenshots { min-height: 420px; }
+  .families-screenshots .screenshot-phone { width: 210px; }
+  .screenshot-widget { width: 240px; left: 110px; bottom: 20px; }
   .trust-bar-inner { gap: 6px; }
   .trust-pill { font-size: 11px; padding: 6px 10px; }
   .hero-grid { background-size: 14px 14px; }
