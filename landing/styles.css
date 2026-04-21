@@ -914,10 +914,50 @@ section { padding: 110px 80px; }
   display: block;
 }
 
+/* Focus section — two overlapping portrait phones */
+.focus-screenshots {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  min-height: 600px;
+  margin: 0 auto;
+}
+.focus-screenshots .focus-phone-primary {
+  width: 290px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.focus-screenshots .focus-phone-secondary {
+  width: 260px;
+  position: absolute;
+  top: 80px;
+  right: 0;
+  z-index: 2;
+  opacity: 1;
+}
+
 /* Feature points without leading icons */
 .feature-points.no-icons .feature-point {
   gap: 0;
 }
+
+/* Theme color swatches */
+.theme-swatches {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.theme-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12), inset 0 0 0 2px rgba(255,255,255,0.6);
+  transition: transform 0.2s ease;
+}
+.theme-swatch:hover { transform: scale(1.15); }
 
 /* ============================================
    FEATURE GRID
@@ -1161,6 +1201,9 @@ body.resizing *::after {
   .feature-screenshots { justify-content: center; }
   .families-screenshots { min-height: 480px; max-width: 440px; }
   .screenshot-widget { left: 140px; width: 300px; }
+  .focus-screenshots { min-height: 540px; max-width: 480px; }
+  .focus-screenshots .focus-phone-primary { width: 260px; }
+  .focus-screenshots .focus-phone-secondary { width: 230px; top: 70px; }
   section { padding: 100px 60px; }
   .hero { padding: 120px 22px 0; }
 
@@ -1262,6 +1305,9 @@ body.resizing *::after {
   .families-screenshots { min-height: 420px; }
   .families-screenshots .screenshot-phone { width: 210px; }
   .screenshot-widget { width: 240px; left: 110px; bottom: 20px; }
+  .focus-screenshots { min-height: 460px; }
+  .focus-screenshots .focus-phone-primary { width: 210px; }
+  .focus-screenshots .focus-phone-secondary { width: 185px; top: 60px; }
   .trust-bar-inner { gap: 6px; }
   .trust-pill { font-size: 11px; padding: 6px 10px; }
   .hero-grid { background-size: 14px 14px; }
