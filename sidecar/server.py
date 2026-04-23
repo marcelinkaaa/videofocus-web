@@ -16,7 +16,7 @@ YDL_OPTS = {
     "quiet": True,
     "no_warnings": False,
     "extractor_args": {
-        "youtube": {"player_client": ["web"]},
+        "youtube": {"player_client": ["web"], "fetch_pot": ["always"]},
         "youtubepot-bgutilhttp": {"base_url": [POT_URL]},
     },
     "js_runtimes": {"node": {}},
