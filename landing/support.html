@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — VideoFocus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="theme.js"></script>
+</head>
+<body data-theme="emerald" class="legal-body-page">
+
+<!-- NAV -->
+<nav id="mainNav" class="scrolled">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark"><img class="theme-logo" src="assets/logo-emerald.png" alt="VideoFocus"></span>
+      <span class="nav-logo-text">VideoFocus</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#features">How it works</a>
+      <a href="index.html#families">Families</a>
+      <a href="index.html#focus">Focus</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html" class="nav-cta">
+        Back to home
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7L7 17"/><path d="M17 17H7V7"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- SUPPORT PAGE -->
+<article class="legal-page">
+  <div class="legal-inner">
+    <header class="legal-header">
+      <div class="section-eyebrow">Support</div>
+      <h1>Get in touch</h1>
+      <p class="legal-updated">We usually reply within <strong>1&ndash;2 business days</strong>.</p>
+    </header>
+
+    <div class="legal-content">
+      <p class="legal-lede">Have a question, feature request, or running into a bug? Send a note using the form below, or email us directly &mdash; whichever is easier for you.</p>
+
+      <a href="mailto:hello@videofocus.app" class="contact-email-card">
+        <div class="contact-email-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="contact-email-body">
+          <span class="contact-email-label">Email us</span>
+          <span class="contact-email-value">hello@videofocus.app</span>
+        </div>
+        <svg class="contact-email-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="contact-row">
+          <label class="contact-field">
+            <span class="contact-label">Your name</span>
+            <input type="text" name="name" required autocomplete="name" placeholder="Jane Doe">
+          </label>
+          <label class="contact-field">
+            <span class="contact-label">Email</span>
+            <input type="email" name="email" required autocomplete="email" placeholder="you@example.com">
+          </label>
+        </div>
+        <label class="contact-field">
+          <span class="contact-label">Subject</span>
+          <input type="text" name="subject" placeholder="What's this about?">
+        </label>
+        <label class="contact-field">
+          <span class="contact-label">Message</span>
+          <textarea name="message" rows="6" required placeholder="Tell us a bit about what's on your mind..."></textarea>
+        </label>
+        <div class="contact-submit-row">
+          <button type="submit" class="contact-submit">
+            Send message
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </button>
+          <p class="contact-submit-note">Submitting opens your email client with the message pre-filled.</p>
+        </div>
+      </form>
+
+      <h2>Common questions</h2>
+      <p><strong>I forgot my parental passcode.</strong> Because the passcode is stored only on your device (in the iOS Keychain) and never sent to us, we cannot recover it. You can reset it by deleting and reinstalling the app, which clears all local data.</p>
+      <p><strong>A video won't play.</strong> Some videos are restricted by their creator from playing outside YouTube. If a specific video repeatedly fails, please email us with the video URL.</p>
+      <p><strong>Can I use VideoFocus on Android?</strong> Not yet. VideoFocus is currently iPhone and iPad only. If Android support is important to you, let us know &mdash; demand helps us prioritize.</p>
+    </div>
+  </div>
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-brand" aria-label="VideoFocus home">
+      <img class="theme-logo" src="assets/logo-emerald.png" alt="">
+      <span class="footer-brand-text">VideoFocus</span>
+    </a>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="support.html">Support</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 VideoFocus. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+// Build a mailto: URL from the form fields and hand off to the user's mail client.
+const form = document.getElementById('contactForm');
+if (form) {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = (data.get('name') || '').trim();
+    const email = (data.get('email') || '').trim();
+    const subject = (data.get('subject') || '').trim();
+    const message = (data.get('message') || '').trim();
+    if (!name || !email || !message) {
+      form.reportValidity();
+      return;
+    }
+    const subj = subject || 'VideoFocus support request';
+    const body = `${message}\n\n— ${name} <${email}>`;
+    const href = `mailto:hello@videofocus.app?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+    window.location.href = href;
+  });
+}
+</script>
+
+</body>
+</html>

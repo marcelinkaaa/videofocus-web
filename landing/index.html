@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script src="theme.js"></script>
 </head>
 <body data-theme="emerald">
 
@@ -62,7 +63,7 @@
       On iPhone &amp; iPad
     </div> -->
     <h1>Videos, <span class="accent-text">on your terms.</span></h1>
-    <p class="hero-sub">You choose the channels. Great for families and focused grownups. No algorithm, no recommendations. </p>
+    <p class="hero-sub">You choose the channels. Great for families and focused grownups. No comments, no algorithm, no recommendations. </p>
     <div class="hero-buttons">
       <a href="#" class="btn-app-store">
         <svg width="18" height="22" viewBox="0 0 20 24" fill="white"><path d="M16.57 12.84c-.03-2.74 2.24-4.07 2.34-4.13-1.28-1.87-3.26-2.13-3.96-2.15-1.67-.17-3.29 1-4.14 1-.86 0-2.17-.98-3.58-.95-1.82.03-3.52 1.07-4.46 2.71-1.92 3.33-.49 8.24 1.36 10.94.92 1.33 2 2.81 3.42 2.76 1.38-.06 1.9-.89 3.56-.89 1.66 0 2.14.89 3.58.86 1.48-.03 2.4-1.34 3.29-2.67 1.05-1.52 1.48-3.01 1.5-3.09-.03-.01-2.88-1.11-2.91-4.39zM13.86 4.6c.74-.92 1.25-2.17 1.11-3.44-1.07.05-2.39.73-3.16 1.63-.69.8-1.3 2.1-1.14 3.33 1.2.09 2.43-.61 3.19-1.52z"/></svg>
@@ -172,7 +173,7 @@
           <div class="feature-point animate-on-scroll">
             <div>
               <h3>Weekly schedule</h3>
-              <p>Set different limits for each day of the week. Weekdays 1&nbsp;hour, weekends 2&nbsp;&mdash;&nbsp;or whatever fits your family.</p>
+              <p>Set different limits for each day of the week. Weekdays 30min, weekends 2 hours&nbsp;&mdash;&nbsp;or whatever fits your family.</p>
             </div>
           </div>
           <div class="feature-point animate-on-scroll">
@@ -208,7 +209,7 @@
       <div class="feature-content">
         <div class="section-eyebrow animate-on-scroll">For focus</div>
         <h2 class="section-heading animate-on-scroll">YouTube without the algorithm</h2>
-        <p class="section-desc animate-on-scroll">No recommendations. No Shorts. No trending tab. Just the channels and videos you chose, in a clean grid.</p>
+        <p class="section-desc animate-on-scroll">No recommendations. No trending tab. Just the channels and videos you chose, in a clean grid.</p>
         <div class="feature-points no-icons">
           <div class="feature-point animate-on-scroll">
             <div>
@@ -341,13 +342,13 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">
+    <a href="index.html" class="footer-brand" aria-label="VideoFocus home">
       <img class="theme-logo" src="assets/logo-emerald.png" alt="">
       <span class="footer-brand-text">VideoFocus</span>
-    </div>
+    </a>
     <div class="footer-links">
       <a href="privacy.html">Privacy Policy</a>
-      <a href="#">Support</a>
+      <a href="support.html">Support</a>
     </div>
     <div class="footer-copy">&copy; 2026 VideoFocus. All rights reserved.</div>
   </div>
@@ -467,31 +468,7 @@ if (document.readyState === 'complete') {
   requestAnimationFrame(() => navIndicator && navIndicator.classList.add('ready'));
 }
 
-// Theme-matched logos (injected at build time)
-const themeLogos = {
-  emerald: 'assets/logo-emerald.png',
-  teal:    'assets/logo-teal.png',
-  coral:   'assets/logo-coral.png',
-  violet:  'assets/logo-violet.png',
-  amber:   'assets/logo-amber.png'
-};
-
-// Theme switcher
-document.querySelectorAll('.theme-dot').forEach(dot => {
-  dot.addEventListener('click', () => {
-    const theme = dot.dataset.t;
-    document.body.setAttribute('data-theme', theme);
-    document.querySelectorAll('.theme-dot').forEach(d => d.classList.remove('active'));
-    dot.classList.add('active');
-    // Swap every themed logo on the page
-    const src = themeLogos[theme];
-    if (src) {
-      document.querySelectorAll('img.theme-logo').forEach(img => {
-        img.src = src;
-      });
-    }
-  });
-});
+// Theme switcher logic moved to theme.js (shared across pages, persists via localStorage)
 
 // Scroll animations
 const observer = new IntersectionObserver((entries) => {
