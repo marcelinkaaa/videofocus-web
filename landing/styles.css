@@ -1029,9 +1029,9 @@ section { padding: 110px 80px; }
   text-align: center;
   padding: 130px 22px;
   background:
-    radial-gradient(ellipse 70% 55% at 85% 100%, var(--accent-light) 0%, transparent 62%),
-    radial-gradient(ellipse 55% 45% at 10% 0%, var(--accent-light) 0%, transparent 65%),
-    linear-gradient(168deg, #FAFBFC 0%, #ffffff 55%, #F7F8FA 100%);
+    radial-gradient(ellipse 70% 55% at 85% 100%, var(--accent-glow) 0%, transparent 62%),
+    radial-gradient(ellipse 55% 45% at 10% 0%, var(--accent-glow) 0%, transparent 65%),
+    linear-gradient(168deg, #FCFCFD 0%, #ffffff 55%, #FBFBFC 100%);
   position: relative;
   overflow: hidden;
 }
@@ -1042,13 +1042,13 @@ section { padding: 110px 80px; }
   pointer-events: none;
   z-index: 0;
   background-image:
-    linear-gradient(to right, rgba(11, 14, 20, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(11, 14, 20, 0.045) 1px, transparent 1px);
+    linear-gradient(to right, rgba(11, 14, 20, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 14, 20, 0.02) 1px, transparent 1px);
   background-size: 22px 22px;
   background-position: center center;
   -webkit-mask-image: radial-gradient(ellipse 95% 90% at 50% 50%, #000 40%, transparent 100%);
           mask-image: radial-gradient(ellipse 95% 90% at 50% 50%, #000 40%, transparent 100%);
-  opacity: 0.7;
+  opacity: 0.45;
 }
 .final-cta .section-inner { position: relative; z-index: 1; }
 @media (min-width: 1280px) { .final-cta::before { background-size: 18px 18px; } }
