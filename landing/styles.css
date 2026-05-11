@@ -9,8 +9,8 @@
   --accent-light: #D4F2E3;
   --accent-glow: rgba(0, 168, 107, 0.18);
   --accent-subtle: #B8E8D1;
-  --hero-gradient-start: #F4FBF7;
-  --hero-gradient-mid: #FBFEFC;
+  --hero-gradient-start: #FAFDFB;
+  --hero-gradient-mid: #FDFEFD;
   --dark-bg: #04110B;
   --dark-card: rgba(0, 168, 107, 0.08);
   --dark-border: rgba(0, 168, 107, 0.2);
@@ -23,8 +23,8 @@
   --accent-light: #CFF1F5;
   --accent-glow: rgba(0, 184, 204, 0.2);
   --accent-subtle: #B2E7EE;
-  --hero-gradient-start: #F2FBFD;
-  --hero-gradient-mid: #FBFEFE;
+  --hero-gradient-start: #F9FCFD;
+  --hero-gradient-mid: #FCFDFE;
   --dark-bg: #051014;
   --dark-card: rgba(0, 184, 204, 0.08);
   --dark-border: rgba(0, 184, 204, 0.22);
@@ -37,8 +37,8 @@
   --accent-light: #FCE0D6;
   --accent-glow: rgba(209, 68, 35, 0.2);
   --accent-subtle: #F4C5B5;
-  --hero-gradient-start: #FEF6F2;
-  --hero-gradient-mid: #FEFBFA;
+  --hero-gradient-start: #FEFAF8;
+  --hero-gradient-mid: #FFFDFC;
   --dark-bg: #130604;
   --dark-card: rgba(209, 68, 35, 0.08);
   --dark-border: rgba(209, 68, 35, 0.22);
@@ -51,8 +51,8 @@
   --accent-light: #ECE0FF;
   --accent-glow: rgba(109, 40, 255, 0.2);
   --accent-subtle: #D9C5FE;
-  --hero-gradient-start: #F9F7FF;
-  --hero-gradient-mid: #FDFCFF;
+  --hero-gradient-start: #FCFAFE;
+  --hero-gradient-mid: #FEFDFF;
   --dark-bg: #0D0718;
   --dark-card: rgba(109, 40, 255, 0.08);
   --dark-border: rgba(109, 40, 255, 0.22);
@@ -65,8 +65,8 @@
   --accent-light: #FFEBC2;
   --accent-glow: rgba(245, 163, 0, 0.22);
   --accent-subtle: #FFDB90;
-  --hero-gradient-start: #FFFBF0;
-  --hero-gradient-mid: #FFFDF9;
+  --hero-gradient-start: #FFFCF5;
+  --hero-gradient-mid: #FFFEFB;
   --dark-bg: #120C02;
   --dark-card: rgba(245, 163, 0, 0.08);
   --dark-border: rgba(245, 163, 0, 0.22);
@@ -396,7 +396,7 @@ nav.menu-open .nav-mobile-menu {
     radial-gradient(ellipse 70% 55% at 85% 10%, var(--accent-glow) 0%, transparent 70%),
     radial-gradient(ellipse 65% 50% at 10% 90%, var(--accent-glow) 0%, transparent 72%),
     radial-gradient(ellipse 90% 70% at 50% 50%, rgba(255,255,255,0.3) 0%, transparent 80%);
-  opacity: 0.28;
+  opacity: 0.15;
   filter: blur(40px);
   pointer-events: none;
   z-index: 0;
