@@ -1151,6 +1151,14 @@ section { padding: 110px 80px; }
   transition: opacity 0.2s;
 }
 .legal-content a:hover { opacity: 0.75; }
+.legal-content code {
+  background: var(--accent-light);
+  color: var(--accent-dark);
+  padding: 2px 7px;
+  border-radius: 5px;
+  font-size: 0.92em;
+  font-weight: 600;
+}
 
 /* Contact email card (support page) */
 .contact-email-card {
