@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Allowing YouTube on your child's device — VideoFocus</title>
+<meta name="description" content="Why VideoFocus needs youtube.com allowed in Screen Time, exactly what that opens up, and how to keep your child's device locked down anyway.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="theme.js"></script>
+<style>
+  /* Page-scoped: the numbered setup steps and the two callouts. Everything
+     else rides on the shared .legal-* styles. */
+  .vf-steps { list-style: none; margin: 0 0 32px; padding: 0; counter-reset: vfstep; }
+  .vf-steps li {
+    position: relative;
+    padding: 0 0 0 46px;
+    margin-bottom: 18px;
+    counter-increment: vfstep;
+    line-height: 1.65;
+  }
+  .vf-steps li::before {
+    content: counter(vfstep);
+    position: absolute;
+    left: 0; top: 1px;
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 13px; font-weight: 700;
+  }
+  .vf-steps code {
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-size: 0.92em;
+    font-weight: 600;
+  }
+
+  .vf-callout {
+    border: 1px solid;
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin: 0 0 32px;
+  }
+  .vf-callout h3 {
+    margin: 0 0 12px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    display: flex; align-items: center; gap: 9px;
+  }
+  .vf-callout ul { margin: 0; padding-left: 20px; }
+  .vf-callout li { margin-bottom: 9px; line-height: 1.6; }
+  .vf-callout li:last-child { margin-bottom: 0; }
+
+  .vf-warn { background: #FFF7E8; border-color: #F0C270; }
+  .vf-warn h3 { color: #8A5B00; }
+  .vf-good { background: var(--accent-light); border-color: var(--accent-subtle); }
+  .vf-good h3 { color: var(--accent-dark); }
+
+  @media (max-width: 640px) {
+    .vf-callout { padding: 18px 18px; }
+    .vf-steps li { padding-left: 40px; }
+  }
+</style>
+</head>
+<body data-theme="emerald" class="legal-body-page">
+
+<!-- NAV -->
+<nav id="mainNav" class="scrolled">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark"><img class="theme-logo" src="assets/logo-emerald.png" alt="VideoFocus"></span>
+      <span class="nav-logo-text">VideoFocus</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#features">How it works</a>
+      <a href="index.html#families">Families</a>
+      <a href="index.html#focus">Focus</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html" class="nav-cta">
+        Back to home
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7L7 17"/><path d="M17 17H7V7"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<article class="legal-page">
+  <div class="legal-inner">
+    <header class="legal-header">
+      <div class="section-eyebrow">Setup</div>
+      <h1>Allowing YouTube on your child&rsquo;s device</h1>
+      <p class="legal-updated">Last updated <strong>September 2026</strong></p>
+    </header>
+
+    <div class="legal-content">
+      <p class="legal-lede">If VideoFocus shows &ldquo;Allow YouTube on this iPad to play videos,&rdquo; your device&rsquo;s Screen Time settings are blocking youtube.com. Here is why VideoFocus needs it, precisely what allowing it opens up, and how to keep the rest of the device locked down.</p>
+
+      <h2>Why VideoFocus needs youtube.com</h2>
+      <p>VideoFocus plays every video through <strong>YouTube&rsquo;s official embedded player</strong>. That is a deliberate choice, and it is the only one we are willing to ship.</p>
+      <p>YouTube&rsquo;s API Terms of Service require that YouTube videos be played in their official player, and Apple&rsquo;s App Store guidelines (5.2.3) prohibit apps from streaming other people&rsquo;s video content without authorization. There are apps that extract raw video streams and play them in a custom player. That approach would sail straight past a content filter &mdash; and it breaks both sets of rules, puts creators&rsquo; view counts and revenue at risk, and can get an app pulled from the store overnight.</p>
+      <p>We took the compliant path instead. The cost of that choice is this one setup step: the official player loads from youtube.com, so the device has to be allowed to reach it.</p>
+
+      <h2>How to allow it</h2>
+      <ol class="vf-steps">
+        <li>Open <code>Settings</code> &rsaquo; <code>Screen Time</code>.</li>
+        <li>Tap <code>Content &amp; Privacy Restrictions</code> &rsaquo; <code>Content Restrictions</code> &rsaquo; <code>Web Content</code>.</li>
+        <li>Tap <code>Add Website</code>. If you use <strong>Limit Adult Websites</strong>, add it under the <code>ALWAYS ALLOW</code> heading. If you use <strong>Only Approved Websites</strong>, add it to the list directly.</li>
+        <li>Enter <code>www.youtube.com</code> &mdash; that exact address is all VideoFocus needs.</li>
+      </ol>
+      <p>Return to VideoFocus and play a video. If it still fails, force-quit the app and reopen it so the player starts a fresh connection.</p>
+
+      <h2>What this actually opens up</h2>
+      <p>We would rather tell you this plainly than have you discover it later. Allowing a website in Screen Time is not scoped to one app.</p>
+
+      <div class="vf-callout vf-warn">
+        <h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Worth knowing
+        </h3>
+        <ul>
+          <li><strong>It applies device-wide, not just to Safari.</strong> Every browser on iOS &mdash; Chrome, Firefox, Edge, Opera &mdash; runs on Apple&rsquo;s WebKit engine, so they all follow the same allow list. So does any app that shows web pages inside itself.</li>
+          <li><strong>It allows all of youtube.com</strong>, not only the videos you approved &mdash; including YouTube&rsquo;s search, its recommendations feed, and Shorts. If your child has a browser, they can reach them.</li>
+          <li><strong>It does not unblock the YouTube app.</strong> That stays controlled separately by <code>Screen Time</code> &rsaquo; <code>Allowed Apps</code> and by app age ratings.</li>
+        </ul>
+      </div>
+
+      <h2>How to keep the fence tight</h2>
+      <p>The gap above closes almost entirely if the device has no browser on it. Most children&rsquo;s iPads do not need one.</p>
+
+      <div class="vf-callout vf-good">
+        <h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          Recommended setup
+        </h3>
+        <ul>
+          <li><strong>Turn off Safari and any other browsers</strong> under <code>Screen Time</code> &rsaquo; <code>Content &amp; Privacy Restrictions</code> &rsaquo; <code>Allowed Apps</code>. VideoFocus keeps working without them.</li>
+          <li><strong>Use Only Approved Websites</strong> rather than Limit Adult Websites. The device can then reach nothing but the handful of sites you list.</li>
+          <li><strong>Prevent new app installs</strong> under <code>Content &amp; Privacy Restrictions</code> &rsaquo; <code>iTunes &amp; App Store Purchases</code>, so a browser cannot simply be re-downloaded.</li>
+          <li><strong>Set a Screen Time passcode</strong> that is different from the device unlock code, and different from your VideoFocus parental passcode.</li>
+          <li><strong>Keep your VideoFocus passcode set.</strong> It gates adding channels, changing time limits, and every other parent control in the app.</li>
+        </ul>
+      </div>
+
+      <h2>What VideoFocus never shows</h2>
+      <p>Inside the app itself, the fence does not depend on Screen Time at all. VideoFocus has <strong>no search for your child</strong>, no recommendation feed, no autoplay into the next suggested video, no comments, and no Shorts. Children see the channels and videos a parent approved, and nothing else. Adding content is behind the parental passcode.</p>
+      <p>That is the whole point of the app: you choose, and your child explores freely inside what you chose.</p>
+
+      <h2>Still not playing?</h2>
+      <p>A handful of videos are set by their own creators to block playback outside YouTube. Those will not play in any app, including ours &mdash; you will see a message saying the owner turned off sharing.</p>
+      <p>If videos fail more broadly after following the steps above, email us at <a href="mailto:hello@videofocus.app">hello@videofocus.app</a> with the device model and iOS version, and we will help.</p>
+    </div>
+  </div>
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-brand" aria-label="VideoFocus home">
+      <img class="theme-logo" src="assets/logo-emerald.png" alt="">
+      <span class="footer-brand-text">VideoFocus</span>
+    </a>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="support.html">Support</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 VideoFocus. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
