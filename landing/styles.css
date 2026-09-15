@@ -496,6 +496,10 @@ nav.menu-open .nav-mobile-menu {
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(0,0,0,0.12), 0 12px 40px rgba(0,0,0,0.1);
 }
+/* Pre-release: CTAs are labels, not links */
+.coming-soon {
+  pointer-events: none;
+}
 .btn-ghost {
   display: inline-flex;
   align-items: center;
