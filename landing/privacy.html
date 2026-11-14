@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy — VideoFocus</title>
+<meta name="apple-itunes-app" content="app-id=6795647933">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -39,7 +40,7 @@
     <header class="legal-header">
       <div class="section-eyebrow">Legal</div>
       <h1>Privacy Policy</h1>
-      <p class="legal-updated">Last updated: <strong>September 22, 2026</strong></p>
+      <p class="legal-updated">Last updated: <strong>November 14, 2026</strong></p>
     </header>
 
     <div class="legal-content">
@@ -55,6 +56,8 @@
         <li>Your parent email address</li>
         <li>Your parental passcode, stored only as a salted PBKDF2-SHA256 <em>hash</em> — never as the passcode itself, and never in a form we can reverse</li>
         <li>A per-day count of how many YouTube lookups your account caused, used only to keep one account from exhausting a shared limit (see &ldquo;What our servers keep about YouTube requests&rdquo;)</li>
+        <li>The devices signed in to your account (an identifier and the device's name), used to apply the device limit</li>
+        <li>If you subscribe, your Family Plan status (see &ldquo;Subscriptions and purchases&rdquo;)</li>
       </ul>
       <p><strong>For each child profile you create</strong></p>
       <ul>
@@ -87,6 +90,9 @@
       </ul>
       <p>In keeping with YouTube&rsquo;s requirements, none of this cached YouTube data is kept indefinitely. The shared cache and the shared new-uploads list are purged automatically, and no entry is retained for more than 30 days.</p>
 
+      <h2>Subscriptions and purchases</h2>
+      <p>The Family Plan is sold through Apple's App Store. Apple handles payment, and we never see or store your card or other payment details. So the plan can unlock every device on your account, our server verifies the purchase with Apple and stores its status on your account: whether it is active, in a free trial, or expired; which plan you chose; when it renews or expires; and Apple's transaction identifier for it. Apple also sends our server notices when a subscription renews, is cancelled, or is refunded, and we use them only to keep that status current. This information is deleted with your account.</p>
+
       <h2>Voice search</h2>
       <p>VideoFocus offers optional voice search. If you use it, the app accesses the microphone and uses Apple's on-device and server-based Speech framework to transcribe what you say into a search query. Audio may be processed by Apple to perform the transcription, as described in Apple's privacy policy. We do not store voice recordings, and voice search is never required to use the app.</p>
 
@@ -106,6 +112,7 @@
       <p>We do not sell your personal information, and we do not share it with advertisers or analytics companies. VideoFocus contains no third-party advertising SDKs, no analytics SDKs, and no cross-app tracking. The only parties involved in operating the service are:</p>
       <ul>
         <li><strong>Supabase</strong> — our hosting and database provider, which stores the synced data described above on our behalf as a data processor.</li>
+        <li><strong>Apple</strong> — processes App Store purchases and subscriptions, and confirms their status to our server, as described in &ldquo;Subscriptions and purchases&rdquo;.</li>
         <li><strong>Google / YouTube</strong> — for video content, playback, and thumbnails delivered to your device, and for the video information our server requests on your behalf, as described above.</li>
       </ul>
 
