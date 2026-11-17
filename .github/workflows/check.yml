@@ -1,0 +1,32 @@
+name: Check site (no deploy)
+
+# Runs on every branch except main and on pull requests. It builds the same
+# image the deploy builds, validates the nginx config and requests every page.
+on:
+  push:
+    branches-ignore: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image
+        run: docker build -t vf-site:check .
+      - name: nginx -t
+        run: docker run --rm vf-site:check nginx -t
+      - name: Serve and request every page
+        run: |
+          docker run -d --name site -p 8080:80 vf-site:check
+          sleep 2
+          fail=0
+          check() { code=$(curl -s -o /dev/null -w '%{http_code}' "http://localhost:8080$1"); echo "$code $1"; [ "$code" = "$2" ] || fail=1; }
+          # Every URL in the sitemap, as a clean URL
+          for u in $(grep -o '<loc>[^<]*</loc>' landing/sitemap.xml | sed -e 's#<loc>https://videofocus.app##' -e 's#</loc>##'); do check "$u" 200; done
+          # Legacy .html links still work
+          for p in /index.html /privacy.html /terms.html /support.html /youtube-access.html /email-updated.html; do check "$p" 200; done
+          for p in /robots.txt /sitemap.xml /llms.txt /favicon.ico /assets/og-image.png; do check "$p" 200; done
+          check /this-page-does-not-exist 404
+          curl -s http://localhost:8080/this-page-does-not-exist | grep -q 'Page not found' || { echo "404 page not served"; fail=1; }
+          exit $fail

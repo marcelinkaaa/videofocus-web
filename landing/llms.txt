@@ -1,0 +1,31 @@
+# VideoFocus
+
+> VideoFocus is an iPhone and iPad app for parents that plays only the YouTube channels and videos a parent has approved. No recommendation feed, no autoplay, no comments, with screen time limits, bedtime and a parent passcode. Independent app by Venture Ink LLC; not affiliated with or endorsed by YouTube or Google.
+
+## Key facts
+- Platforms: iPhone and iPad, iOS 17.5 or later. Not on Android or TV.
+- How it works: the parent sets a passcode, creates a profile per child, searches YouTube inside the app and approves whole channels or single videos. Approving a channel includes its new uploads automatically. Children see only approved content and can search only within it.
+- Screen time: a different daily limit for each weekday, bedtime lockout, a warning at 90%, extra time only with the parent passcode. Counts only minutes of actual playback.
+- Playback: YouTube's official embedded player; VideoFocus never downloads or re-hosts videos. The device must be able to reach www.youtube.com.
+- Ads and privacy: no ads, trackers or third-party analytics from VideoFocus. YouTube's player can show YouTube's own ads. No Shorts feed (a channel's own Shorts can appear among its videos).
+- Price: free for one child profile on one device. Family Plan: US$3.99/month or US$39.99/year, two-week free trial, Family Sharing supported; adds unlimited child profiles, multiple devices, screen time schedules and bedtime.
+- Children do not need a Google or YouTube account.
+- App Store: https://apps.apple.com/app/videofocus-kids-video-library/id6795647933
+
+## How it compares
+- YouTube Kids: filters a kids-only catalog; its approved-content mode works only within that catalog and turns search off. VideoFocus approves any YouTube channel. YouTube Kids is free and runs on TVs; VideoFocus does not.
+- Supervised YouTube (Family Link): content levels plus channel blocking; cannot restrict a child to specific channels.
+- Apple Screen Time: can limit or block YouTube as a whole, not by channel. Used together with VideoFocus to keep the YouTube app and browsers off a child's device.
+
+## Pages
+- [Home](https://videofocus.app/)
+- [How to only allow certain YouTube channels on iPad and iPhone](https://videofocus.app/guides/only-allow-certain-youtube-channels)
+- [How to set up a kid's iPad](https://videofocus.app/guides/set-up-kids-ipad)
+- [YouTube Kids approved content only not working](https://videofocus.app/guides/youtube-kids-approved-content-not-working)
+- [VideoFocus vs YouTube Kids](https://videofocus.app/compare/youtube-kids)
+- [Supervised YouTube vs YouTube Kids vs an allowlist](https://videofocus.app/compare/supervised-youtube)
+- [Can Screen Time block YouTube channels?](https://videofocus.app/compare/screen-time)
+- [Best YouTube Kids alternatives](https://videofocus.app/compare/best-youtube-kids-alternatives)
+- [Best YouTube channels for ages 3–5](https://videofocus.app/channels/ages-3-5), [ages 6–8](https://videofocus.app/channels/ages-6-8), [calm and bedtime](https://videofocus.app/channels/calm-bedtime)
+- [Allowing YouTube on your child's device](https://videofocus.app/youtube-access)
+- [Support](https://videofocus.app/support) · [Privacy](https://videofocus.app/privacy) · [Terms](https://videofocus.app/terms)

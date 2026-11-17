@@ -1,0 +1,64 @@
+<!--
+path: /guides/only-allow-certain-youtube-channels
+title: How to Only Allow Certain YouTube Channels on iPad & iPhone (2026)
+description: YouTube can block channels but can't allow only the ones you pick. Here are the four ways parents try it on iPad and iPhone, what each one misses, and a setup that works.
+h1: How to only allow certain YouTube channels on iPad and iPhone
+crumb: Only allow certain channels
+kind: guide
+updated: 2026-11-16
+card: Why YouTube can't do it on its own, and the setup that works.
+related: /guides/set-up-kids-ipad, /compare/youtube-kids, /guides/youtube-kids-approved-content-not-working, /channels/ages-6-8
+-->
+<div class="answer-box"><span class="k">Short answer</span>
+YouTube can't do this on its own. Supervised YouTube lets you <em>block</em> channels but not allow only a few. YouTube Kids' "approve content yourself" mode works only inside the YouTube Kids catalog and turns search off. Screen Time can block YouTube entirely but can't pick channels. To allow <strong>only</strong> the channels you choose, use an allowlist app like VideoFocus, then use Screen Time to lock down the YouTube app and browsers.
+</div>
+
+<p>Most parents land on this question after the same evening: you hand over the iPad, YouTube's feed does what it's built to do, and twenty minutes later your child is somewhere you never chose. Filtering tries to guess what's bad. An allowlist starts from nothing and adds only what you approve. Here's how each option on an iPad or iPhone actually behaves.</p>
+
+<h2>Option 1: YouTube Kids with "approve content yourself"</h2>
+<p>This is the only allowlist Google offers. In the YouTube Kids app, a signed-in parent can set a child's profile to approved content only, then pick videos, channels or collections.</p>
+<ul>
+  <li><strong>What works:</strong> it's free, it's on TVs as well as tablets, and only what you approve appears.</li>
+  <li><strong>What doesn't:</strong> you can only choose from what's in the YouTube Kids catalog, so many general-audience channels older kids watch (science, maker and Minecraft building channels) aren't there. Search is switched off in this mode, and parents regularly report approved channels going missing. More on that in our <a href="/guides/youtube-kids-approved-content-not-working">troubleshooting guide</a>.</li>
+</ul>
+
+<h2>Option 2: supervised YouTube (Google Family Link)</h2>
+<p>For tweens, Google offers a supervised account on regular YouTube with three content levels: Explore, Explore More and Most of YouTube. You can block individual channels, and since 2026 you can limit Shorts time for teens.</p>
+<ul>
+  <li><strong>What works:</strong> the full YouTube catalog, and a setting that grows with your child.</li>
+  <li><strong>What doesn't:</strong> it's a blocklist, not an allowlist. Everything at the chosen level is open until you find it and block it, and the recommendation feed is still there.</li>
+</ul>
+
+<h2>Option 3: Screen Time alone</h2>
+<p>Apple's Screen Time can set an app limit on YouTube, block the app, or block youtube.com. It sees YouTube as one thing, so it's all or nothing. It has no idea which channel is playing.</p>
+
+<h2>Option 4: an allowlist app (the setup that works)</h2>
+<p>An allowlist app plays YouTube videos only from channels and videos a parent added. VideoFocus is the one we build, so here's that setup. It takes about ten minutes.</p>
+<ol>
+  <li><strong>Install VideoFocus</strong> on your child's iPad (and your own iPhone if you want to manage it from there).</li>
+  <li><strong>Set a parent passcode</strong> and create a profile for each child.</li>
+  <li><strong>Search for channels inside the app and approve them.</strong> Approve a whole channel and its new uploads appear automatically, so you're not approving one video at a time. You can also add single videos.</li>
+  <li><strong>Set screen time:</strong> a daily limit for each day of the week and a bedtime. Only minutes of actual playback count.</li>
+  <li><strong>Lock the rest of the device with Screen Time.</strong> In Settings › Screen Time › Content &amp; Privacy Restrictions: turn off the YouTube app and Safari under Allowed Apps, choose Only Approved Websites under Web Content and add <code>www.youtube.com</code> (the official player needs it; <a href="/youtube-access">here's exactly what that opens up</a>), and set app installs to Don't Allow.</li>
+</ol>
+<div class="note-box"><p>Why step 5 matters: an allowlist app controls what plays inside it. Screen Time makes sure there's no other way onto YouTube on that device.</p></div>
+
+<h2>The options side by side</h2>
+<div class="table-wrap"><table class="cmp">
+  <thead><tr><th></th><th>Only your channels</th><th>Full YouTube catalog</th><th>Kids can search</th><th>Price</th></tr></thead>
+  <tbody>
+    <tr><td>YouTube Kids (approved mode)</td><td>Yes</td><td>No, YouTube Kids catalog only</td><td>No</td><td>Free</td></tr>
+    <tr><td>Supervised YouTube</td><td>No, block-only</td><td>Yes, by level</td><td>Yes, all of YouTube at that level</td><td>Free</td></tr>
+    <tr><td>Screen Time alone</td><td>No, all or nothing</td><td>n/a</td><td>n/a</td><td>Free</td></tr>
+    <tr class="us"><td>VideoFocus</td><td>Yes</td><td>Yes, any channel</td><td>Only within what you approved</td><td>Free for 1 child; Family Plan $3.99/mo</td></tr>
+  </tbody>
+</table></div>
+
+<h2>Questions parents ask</h2>
+<div class="faq-list">
+  <details><summary>Can I whitelist channels on YouTube itself?</summary><div><p>Not on regular YouTube. Supervised accounts can block channels but can't restrict a child to a list. YouTube Kids can, but only with content in its own catalog.</p></div></details>
+  <details><summary>Do new videos from an approved channel show up automatically?</summary><div><p>In VideoFocus, yes. Approving a channel unlocks its whole catalog, including new uploads, so the library stays fresh without you approving each video.</p></div></details>
+  <details><summary>Does this block YouTube Shorts?</summary><div><p>There's no Shorts feed and no swiping in VideoFocus. If a channel you approve posts Shorts, those can appear among that channel's videos, the same as its other uploads.</p></div></details>
+  <details><summary>Will my child see ads?</summary><div><p>VideoFocus doesn't add any ads. Videos play in YouTube's official player, which can show YouTube's own ads, the same as anywhere YouTube videos are embedded.</p></div></details>
+  <details><summary>Does it work without my child having a YouTube account?</summary><div><p>Yes. Your child doesn't need a Google or YouTube account. You sign in to VideoFocus with your email.</p></div></details>
+</div>

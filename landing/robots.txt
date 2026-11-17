@@ -1,0 +1,25 @@
+# videofocus.app — everyone welcome, including AI assistants that help parents find answers.
+User-agent: *
+Allow: /
+Disallow: /email-updated
+Disallow: /r/
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://videofocus.app/sitemap.xml

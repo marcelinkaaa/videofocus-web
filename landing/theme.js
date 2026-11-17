@@ -2,11 +2,11 @@
   var VALID = ['emerald', 'teal', 'coral', 'violet', 'amber'];
   var KEY = 'vf-theme';
   var LOGOS = {
-    emerald: 'assets/logo-emerald.png',
-    teal:    'assets/logo-teal.png',
-    coral:   'assets/logo-coral.png',
-    violet:  'assets/logo-violet.png',
-    amber:   'assets/logo-amber.png'
+    emerald: '/assets/logo-emerald.png',
+    teal:    '/assets/logo-teal.png',
+    coral:   '/assets/logo-coral.png',
+    violet:  '/assets/logo-violet.png',
+    amber:   '/assets/logo-amber.png'
   };
 
   function getStored() {
@@ -16,7 +16,9 @@
     } catch (e) { return null; }
   }
 
-  var initial = getStored() || 'emerald';
+  // Palette is locked to emerald while the brand palette is decided; the public
+  // switcher is gone. Change this one value to switch the whole site.
+  var initial = 'emerald';
 
   // Apply to <html> immediately so descendants inherit the right CSS vars on first paint
   document.documentElement.setAttribute('data-theme', initial);
