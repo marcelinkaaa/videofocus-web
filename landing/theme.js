@@ -16,9 +16,7 @@
     } catch (e) { return null; }
   }
 
-  // Palette is locked to emerald while the brand palette is decided; the public
-  // switcher is gone. Change this one value to switch the whole site.
-  var initial = 'emerald';
+  var initial = getStored() || 'emerald';
 
   // Apply to <html> immediately so descendants inherit the right CSS vars on first paint
   document.documentElement.setAttribute('data-theme', initial);
