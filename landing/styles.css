@@ -368,7 +368,7 @@ nav.menu-open .nav-mobile-menu {
    HERO
    ============================================ */
 .hero {
-  max-height: calc(100svh + 90px);
+  max-height: calc(100svh + 300px); /* longer headline: keep ~80% of the devices in view */
   padding: 120px 22px 0;
   display: flex;
   flex-direction: column;
