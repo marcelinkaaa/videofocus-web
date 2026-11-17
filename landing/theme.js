@@ -49,7 +49,14 @@
   }
 
   function init() {
-    applyTheme(initial);
+    // No theme picked yet: keep the App Store icon logo the HTML ships with.
+    if (getStored()) {
+      applyTheme(initial);
+    } else {
+      document.querySelectorAll('.theme-dot').forEach(function (d) {
+        d.classList.toggle('active', d.dataset.t === initial);
+      });
+    }
     document.querySelectorAll('.theme-dot').forEach(function (dot) {
       dot.addEventListener('click', function () {
         var t = dot.dataset.t;

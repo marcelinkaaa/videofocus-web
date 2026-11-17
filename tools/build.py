@@ -31,7 +31,7 @@ LANDING = ROOT / "landing"
 SITE = "https://videofocus.app"
 APP_ID = "6795647933"
 # Bump when styles.css or theme.js change: nginx lets browsers cache them for 7 days.
-ASSET_V = "20261117g"
+ASSET_V = "20261117h"
 
 # ---- Fill these in (Step 1) -------------------------------------------------
 PT = ""            # App Store Connect provider token, e.g. "123456789"
@@ -198,7 +198,7 @@ def render(page, pages_by_path):
 <nav id="mainNav" class="scrolled">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
-      <span class="nav-logo-mark"><img class="theme-logo" src="/assets/logo-emerald.png" alt="VideoFocus" width="944" height="706"></span>
+      <span class="nav-logo-mark"><img class="theme-logo" src="/assets/logo-appicon.png" alt="VideoFocus" width="944" height="706"></span>
       <span class="nav-logo-text">VideoFocus</span>
     </a>
     <div class="nav-links">
@@ -232,7 +232,7 @@ def render(page, pages_by_path):
 <footer>
   <div class="footer-inner">
     <a href="/" class="footer-brand" aria-label="VideoFocus home">
-      <img class="theme-logo" src="/assets/logo-emerald.png" alt="" width="944" height="706">
+      <img class="theme-logo" src="/assets/logo-appicon.png" alt="" width="944" height="706">
       <span class="footer-brand-text">VideoFocus</span>
     </a>
     {FOOTER_LINKS}
