@@ -31,7 +31,7 @@ LANDING = ROOT / "landing"
 SITE = "https://videofocus.app"
 APP_ID = "6795647933"
 # Bump when styles.css or theme.js change: nginx lets browsers cache them for 7 days.
-ASSET_V = "20261117b"
+ASSET_V = "20261117d"
 
 # ---- Fill these in (Step 1) -------------------------------------------------
 PT = ""            # App Store Connect provider token, e.g. "123456789"
@@ -55,6 +55,7 @@ FOOTER_LINKS = """<div class="footer-links">
       <a href="/privacy">Privacy Policy</a>
       <a href="/terms">Terms of Service</a>
       <a href="/support">Support</a>
+      <a href="https://podfocus.app">PodFocus: podcasts for kids</a>
     </div>"""
 
 KIND_LABEL = {"guide": "Guide", "compare": "Comparison", "list": "Channel list", "hub": "Guides", "page": ""}

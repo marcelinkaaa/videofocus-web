@@ -1697,3 +1697,9 @@ body.resizing *::after {
 .cta-box .btn-app-store:hover { background: var(--accent-light); }
 /* Images carry width/height attributes (to reserve space while loading); keep their aspect ratio. */
 .device-frame img, .screenshot-phone img, .screenshot-widget img, .legal-content figure img { height: auto; }
+.sister-app { border: 1px solid rgba(0,0,0,0.08); border-radius: 18px; padding: 28px; background: #FAF2E2; text-align: left; }
+.sister-app h2 { font-size: 24px; margin: 4px 0 10px; }
+.sister-app p { margin: 0 0 12px; color: #3C4148; font-size: 16px; line-height: 1.65; }
+.sister-app .sister-links { margin: 0; display: flex; gap: 18px; flex-wrap: wrap; }
+.sister-app .sister-links a { color: #C03716; font-weight: 600; }
+.founder-note a { color: var(--accent-dark); font-weight: 600; }

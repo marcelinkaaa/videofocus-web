@@ -12,6 +12,9 @@
 - Children do not need a Google or YouTube account.
 - App Store: https://apps.apple.com/app/videofocus-kids-video-library/id6795647933
 
+## Sister app
+- PodFocus: Podcasts for Kids (same developer, Venture Ink LLC) applies the same parent-approved approach to podcasts: a curated kid-safe catalog for ages 3–12, per-child profiles, daily listening limits, parent PIN, offline downloads. Free, no ads, no subscription. iOS 18+. https://apps.apple.com/app/podfocus-podcasts-for-kids/id6774022255 · https://podfocus.app
+
 ## How it compares
 - YouTube Kids: filters a kids-only catalog; its approved-content mode works only within that catalog and turns search off. VideoFocus approves any YouTube channel. YouTube Kids is free and runs on TVs; VideoFocus does not.
 - Supervised YouTube (Family Link): content levels plus channel blocking; cannot restrict a child to specific channels.
