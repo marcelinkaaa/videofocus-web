@@ -31,7 +31,7 @@ LANDING = ROOT / "landing"
 SITE = "https://videofocus.app"
 APP_ID = "6795647933"
 # Bump when styles.css or theme.js change: nginx lets browsers cache them for 7 days.
-ASSET_V = "20261117h"
+ASSET_V = "20261117i"
 
 # ---- Fill these in (Step 1) -------------------------------------------------
 PT = ""            # App Store Connect provider token, e.g. "123456789"

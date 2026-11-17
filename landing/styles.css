@@ -1702,6 +1702,6 @@ body.resizing *::after {
 .sister-app h2 { font-size: 24px; margin: 4px 0 10px; }
 .sister-app p { margin: 0 0 12px; color: #3C4148; font-size: 16px; line-height: 1.65; }
 .sister-app .sister-links { margin: 0; display: flex; gap: 18px; flex-wrap: wrap; }
-.sister-app .sister-links a { color: #C03716; font-weight: 600; }
+.sister-app .sister-links a { color: var(--accent-dark); font-weight: 600; }
 .founder-note a { color: var(--accent-dark); font-weight: 600; }
 .fav-box { background: #FAF2E2; border-left-color: #F5941F; }
