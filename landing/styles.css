@@ -1695,3 +1695,5 @@ body.resizing *::after {
 .cta-box .btn-app-store { background: #fff; color: #0B0E14 !important; box-shadow: none; }
 .cta-box .btn-app-store svg { fill: #0B0E14; }
 .cta-box .btn-app-store:hover { background: var(--accent-light); }
+/* Images carry width/height attributes (to reserve space while loading); keep their aspect ratio. */
+.device-frame img, .screenshot-phone img, .screenshot-widget img, .legal-content figure img { height: auto; }

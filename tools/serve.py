@@ -7,6 +7,10 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "landing")
 
 class H(http.server.SimpleHTTPRequestHandler):
     extensions_map = {**http.server.SimpleHTTPRequestHandler.extensions_map, ".html": "text/html; charset=utf-8", ".txt": "text/plain; charset=utf-8", ".webp": "image/webp"}
+    def end_headers(self):
+        self.send_header("Cache-Control", "no-store")  # preview: always show the latest build
+        super().end_headers()
+
     def send_head(self):
         path = self.path.split("?")[0].split("#")[0]
         fs = self.translate_path(path)
