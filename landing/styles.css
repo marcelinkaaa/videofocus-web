@@ -1592,8 +1592,9 @@ body.resizing *::after {
   font-size: 18px; font-weight: 700; color: #0B0E14;
   margin: 28px 0 10px;
 }
-.legal-content ol { font-size: 16px; line-height: 1.7; margin: 0 0 20px; padding-left: 24px; }
-.legal-content ol li { margin-bottom: 10px; padding-left: 4px; }
+/* :not(.vf-steps) keeps the custom numbered steps on youtube-access.html intact */
+.legal-content ol:not(.vf-steps) { font-size: 16px; line-height: 1.7; margin: 0 0 20px; padding-left: 24px; }
+.legal-content ol:not(.vf-steps) li { margin-bottom: 10px; padding-left: 4px; }
 .legal-content strong { color: #0B0E14; }
 
 .answer-box {
