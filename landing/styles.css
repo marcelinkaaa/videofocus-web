@@ -1705,3 +1705,13 @@ body.resizing *::after {
 .sister-app .sister-links a { color: var(--accent-dark); font-weight: 600; }
 .founder-note a { color: var(--accent-dark); font-weight: 600; }
 .fav-box { background: #FAF2E2; border-left-color: #F5941F; }
+
+/* Press kit screenshot gallery */
+.press-shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 20px 0 28px; }
+.press-shots-ipad { grid-template-columns: repeat(2, 1fr); }
+.press-shots figure { margin: 0; }
+.press-shots img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+.press-shots a:hover { opacity: 1; }
+.press-shots a:hover img { transform: translateY(-2px); transition: transform .15s ease; }
+.press-shots figcaption { font-size: 0.85rem; line-height: 1.4; color: #6B7280; margin-top: 8px; }
+@media (max-width: 640px) { .press-shots { grid-template-columns: repeat(2, 1fr); gap: 14px; } }
