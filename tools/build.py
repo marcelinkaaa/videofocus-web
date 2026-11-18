@@ -34,7 +34,7 @@ APP_ID = "6795647933"
 ASSET_V = "20261117i"
 
 # ---- Fill these in (Step 1) -------------------------------------------------
-PT = ""            # App Store Connect provider token, e.g. "123456789"
+PT = "128908583"   # App Store Connect provider token (campaign links)
 GOATCOUNTER = ""   # GoatCounter code, e.g. "videofocus" for videofocus.goatcounter.com
 # ------------------------------------------------------------------------------
 
