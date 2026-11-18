@@ -35,7 +35,8 @@ ASSET_V = "20261117i"
 
 # ---- Fill these in (Step 1) -------------------------------------------------
 PT = "128908583"   # App Store Connect provider token (campaign links)
-GOATCOUNTER = ""   # GoatCounter code, e.g. "videofocus" for videofocus.goatcounter.com
+CLOUDFLARE = "a0db7214556e458ea550fafd909a8e05"   # Cloudflare Web Analytics token (cookieless)
+GOATCOUNTER = ""   # GoatCounter code, e.g. "videofocus" for videofocus.goatcounter.com (unused)
 # ------------------------------------------------------------------------------
 
 # Static pages that aren't built from content/ but belong in the sitemap.
@@ -69,11 +70,13 @@ def app_url(ct: str) -> str:
 
 
 def analytics_block() -> str:
-    if not GOATCOUNTER:
-        return "<!-- analytics:start --><!-- analytics:end -->"
-    return ("<!-- analytics:start -->"
-            f'<script data-goatcounter="https://{GOATCOUNTER}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
-            "<!-- analytics:end -->")
+    tags = ""
+    if CLOUDFLARE:
+        tags += ("<script defer src=\"https://static.cloudflareinsights.com/beacon.min.js\" "
+                 f"data-cf-beacon='{{\"token\": \"{CLOUDFLARE}\"}}'></script>")
+    if GOATCOUNTER:
+        tags += f'<script data-goatcounter="https://{GOATCOUNTER}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
+    return f"<!-- analytics:start -->{tags}<!-- analytics:end -->"
 
 
 def parse(path: Path):
