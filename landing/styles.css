@@ -1631,6 +1631,13 @@ body.resizing *::after {
 .channel-list .ch-name { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 17px; color: #0B0E14; }
 .channel-list .ch-meta { font-size: 13px; color: #6C7278; margin-left: 8px; }
 .channel-list p { margin: 6px 0 0 !important; font-size: 15px !important; }
+.channel-list li:has(.ch-avatar) { display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; align-items: start; }
+.channel-list .ch-avatar { grid-row: span 2; width: 44px; height: 44px; border-radius: 50%; object-fit: cover; background: rgba(0,0,0,0.06); margin-top: 2px; }
+.channel-list .ch-head { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 8px; row-gap: 2px; }
+.channel-list .ch-head .ch-meta { margin-left: 0; }
+.channel-list .ch-handle { font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none; }
+.channel-list .ch-handle:hover { text-decoration: underline; }
+.channel-list li:has(.ch-avatar) p { grid-column: 2; }
 
 .faq-list { margin: 8px 0 32px; }
 .faq-list details { border-bottom: 1px solid rgba(0,0,0,0.08); padding: 4px 0; }
