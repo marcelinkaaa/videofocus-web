@@ -51,6 +51,7 @@ STATIC_PAGES = [
 APPLE_SVG = '<svg width="18" height="22" viewBox="0 0 20 24" fill="white" aria-hidden="true"><path d="M16.57 12.84c-.03-2.74 2.24-4.07 2.34-4.13-1.28-1.87-3.26-2.13-3.96-2.15-1.67-.17-3.29 1-4.14 1-.86 0-2.17-.98-3.58-.95-1.82.03-3.52 1.07-4.46 2.71-1.92 3.33-.49 8.24 1.36 10.94.92 1.33 2 2.81 3.42 2.76 1.38-.06 1.9-.89 3.56-.89 1.66 0 2.14.89 3.58.86 1.48-.03 2.4-1.34 3.29-2.67 1.05-1.52 1.48-3.01 1.5-3.09-.03-.01-2.88-1.11-2.91-4.39zM13.86 4.6c.74-.92 1.25-2.17 1.11-3.44-1.07.05-2.39.73-3.16 1.63-.69.8-1.3 2.1-1.14 3.33 1.2.09 2.43-.61 3.19-1.52z"/></svg>'
 
 FOOTER_LINKS = """<div class="footer-links">
+      <a href="/channels">Channels for kids</a>
       <a href="/guides">Guides for parents</a>
       <a href="/press">Press</a>
       <a href="/privacy">Privacy Policy</a>
@@ -60,7 +61,7 @@ FOOTER_LINKS = """<div class="footer-links">
     </div>"""
 
 KIND_LABEL = {"guide": "Guide", "compare": "Comparison", "list": "Channel list", "hub": "Guides", "page": ""}
-KIND_CRUMB = {"guide": ("Guides", "/guides"), "compare": ("Guides", "/guides"), "list": ("Channel lists", "/guides#channel-lists")}
+KIND_CRUMB = {"guide": ("Guides", "/guides"), "compare": ("Guides", "/guides"), "list": ("Channels", "/channels")}
 
 
 def app_url(ct: str) -> str:
@@ -206,6 +207,7 @@ def render(page, pages_by_path):
     </a>
     <div class="nav-links">
       <a href="/#features">How it works</a>
+      <a href="/channels">Channels</a>
       <a href="/guides">Guides</a>
       <a href="/#pricing">Pricing</a>
     </div>
