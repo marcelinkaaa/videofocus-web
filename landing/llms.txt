@@ -29,6 +29,6 @@
 - [Supervised YouTube vs YouTube Kids vs an allowlist](https://videofocus.app/compare/supervised-youtube)
 - [Can Screen Time block YouTube channels?](https://videofocus.app/compare/screen-time)
 - [Best YouTube Kids alternatives](https://videofocus.app/compare/best-youtube-kids-alternatives)
-- [Best YouTube channels for ages 3–5](https://videofocus.app/channels/ages-3-5), [ages 6–8](https://videofocus.app/channels/ages-6-8), [calm and bedtime](https://videofocus.app/channels/calm-bedtime)
+- [Best YouTube channels for ages 3–5](https://videofocus.app/channels/ages-3-5), [ages 6–8](https://videofocus.app/channels/ages-6-8), [ages 9–12](https://videofocus.app/channels/ages-9-12), [teen science and engineering](https://videofocus.app/channels/teen-science-engineering), [LEGO, domino and maker channels](https://videofocus.app/channels/builders), [movement and dance](https://videofocus.app/channels/move-and-play), [calm and bedtime](https://videofocus.app/channels/calm-bedtime)
 - [Allowing YouTube on your child's device](https://videofocus.app/youtube-access)
 - [Support](https://videofocus.app/support) · [Privacy](https://videofocus.app/privacy) · [Terms](https://videofocus.app/terms)
